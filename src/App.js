@@ -19,7 +19,14 @@ const App = () => {
   const [cartItems, setCartItems] = useState([]);
 
   const handleAddToCart = (item) => {
-    setCartItems([...cartItems, item]);
+    const { article, taxable, imported } = item;
+    const [quantity, ...itemDetails] = article.split(' ');
+    const itemName = itemDetails.slice(0, -2).join(' ');
+    const price = parseFloat(itemDetails[itemDetails.length - 1]);
+    const tax = calculateTax(price, taxable, imported);
+    const taxAmount = tax * parseInt(quantity);
+    const itemWithTax = { ...item, tax: taxAmount };
+    setCartItems([...cartItems, itemWithTax]);
   };
 
   const calculateTax = (price, isTaxable, isImported) => {

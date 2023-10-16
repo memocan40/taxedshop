@@ -6,7 +6,9 @@ const Warenkorb = ({ items, totalAmount, totalTax }) => {
       <h2>Warenkorb</h2>
       <ul>
         {items.map((item, index) => (
-          <li key={index}>{item.article}</li>
+          <li key={index}>
+            {item.article} - Tax: {item.tax.toFixed(2)}
+          </li>
         ))}
       </ul>
       <p>Total Amount: {totalAmount}</p>
