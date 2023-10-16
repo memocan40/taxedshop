@@ -1,4 +1,5 @@
 import React from 'react';
+import './ArtikelList.css';
 
 const ArticleList = ({ articles, handleAddToCart }) => {
 
@@ -24,9 +25,9 @@ const ArticleList = ({ articles, handleAddToCart }) => {
           const taxable = isTaxable(article);
           const imported = isImported(article);
           return (
-            <li key={index}>
+            <li key={index} className="article-item">
               {article} - {taxable ? "Taxable" : "Non-taxable"} - {imported ? "Imported" : "Not Imported"}
-              <button onClick={() => handleAddToCart({ article, taxable, imported })}>Add to Cart</button>
+              <button className="button" onClick={() => handleAddToCart({ article, taxable, imported })}>Add to Cart</button>
             </li>
           );
         })}

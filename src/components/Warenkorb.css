@@ -1,0 +1,11 @@
+.warenkorb-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  
+  .item {
+    margin: 10px 0;
+  }
+  
